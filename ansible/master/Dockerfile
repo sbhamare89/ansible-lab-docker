@@ -4,9 +4,9 @@
 FROM ansible_base:latest
 
 # install ansible package
-RUN apt-get update \
-    && apt-get install --no-install-recommends --no-install-suggests -y \
-    ansible
+# RUN apt-get update && apt-get install --no-install-recommends --no-install-suggests -y ansible
+
+# RUN echo yes | pip3 install ansible
 
 # copy content of ansible directory from local disk to file system inside Docker image
 COPY ansible /var/ans/

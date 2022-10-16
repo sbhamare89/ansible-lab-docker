@@ -13,6 +13,7 @@ services:
     command: ["/usr/sbin/sshd","-D"]
     volumes:
       - ansible_vol:/var/ans
+      - local_data:/data:rw
   host:
     links:
       - base
@@ -24,6 +25,7 @@ services:
     command: ["/var/run.sh"]
     volumes:
      - ansible_vol:/var/ans
+     - local_data:/data:rw
   host02:
     links:
       - base
@@ -35,6 +37,7 @@ services:
     command: ["/var/run.sh"]
     volumes:
      - ansible_vol:/var/ans
+     - local_data:/data:rw
   host03:
     links:
       - base
@@ -46,5 +49,12 @@ services:
     command: ["/var/run.sh"]
     volumes:
      - ansible_vol:/var/ans
+     - local_data:/data:rw
 volumes:
   ansible_vol:
+  local_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: 'C:/Users/xlr8/Documents/vscodefiles'
